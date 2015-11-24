@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../layout/layout.xhtml">
+
+            <ui:define name="top">
+                Cabecera
+            </ui:define>
+
+            <ui:define name="content">
+                Contenido
+                <h:form>
+                    <div class="titulo">
+                        Registro de usuario
+                    </div>
+                    <div class="contenido">
+                        <table width="100%" cellspacing="0">
+                            <tbody>
+                                <tr>
+                                    <td class="label">Código:
+                                    </td>
+                                    <td class="caja">
+                                        <input name="txtCodigo" type="text" id="txtCodigo" placeholder="Código Usuario" style="width: 50% !important;" />
+                                        <span id="verificar"></span>
+                                    </td>
+                                    <td class="requerido"></td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Nombre:
+                                    </td>
+                                    <td class="caja">
+                                        <input name="txtNombre" type="text" id="txtNombre" class="mayuscula" />
+                                    </td>
+                                    <td class="requerido">
+                                        <span id="RequiredFieldValidator1" style="visibility:hidden;">*</span>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="label">E-mail:
+                                    </td>
+                                    <td class="caja">
+                                        <input name="txtEmail" type="text" id="txtEmail" placeholder="micorreo@ejemplo.com" style="text-transform: lowercase;" />
+                                    </td>
+                                    <td class="requerido">
+                                        <span id="RequiredFieldValidator3" style="display:none;visibility:hidden;">*</span>
+                                        <span id="RegularExpressionValidator3" style="visibility:hidden;">*</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"></td>
+                                    <td class="cblue caja">Registre un usuario para <a href="index.xhtml">acceder al sistema</a>.
+                                    </td>
+                                    <td class="requerido"></td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Usuario:
+                                    </td>
+                                    <td class="caja">
+                                        <input name="txtUsuario" type="text" id="txtUsuario" class="mayuscula" />
+                                    </td>
+                                    <td class="requerido">
+                                        <span id="RequiredFieldValidator4" style="visibility:hidden;">*</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Password:
+                                    </td>
+                                    <td class="caja">
+                                        <input name="txtClave" type="password" id="txtClave" />
+                                    </td>
+                                    <td class="requerido">
+                                        <span id="RequiredFieldValidator5" style="visibility:hidden;">*</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Repita password:</td>
+                                    <td class="caja">
+                                        <input name="txtClaveRepite" type="password" id="txtClaveRepite" />
+                                    </td>
+                                    <td class="requerido">
+                                        <span id="CompareValidator1" style="visibility:hidden;">*</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"></td>
+                                    <td class="cred caja" style="padding: 10px 0px;">
+                                        <span id="lblAviso"> </span>
+                                    </td>
+                                    <td class="requerido"></td>
+                                </tr>
+                                <tr>
+                                    <td class="label"></td>
+                                    <td class="caja">
+                                        <input type="submit" name="btnRegistrar" value="Registrar mis datos" id="btnRegistrar" class="button" />
+                                    </td>
+                                    <td class="requerido"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </h:form>
+
+
+
+            </ui:define>
+
+            <ui:define name="bottom">
+                Pie Pagina
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -8,10 +8,11 @@ package Dunia.Entidades;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -31,9 +32,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Comida.findAll", query = "SELECT c FROM Comida c"),
     @NamedQuery(name = "Comida.findByIdcomida", query = "SELECT c FROM Comida c WHERE c.idcomida = :idcomida"),
-    @NamedQuery(name = "Comida.findByTipo", query = "SELECT c FROM Comida c WHERE c.tipo = :tipo"),
-    @NamedQuery(name = "Comida.findByDescripcion", query = "SELECT c FROM Comida c WHERE c.descripcion = :descripcion"),
-    @NamedQuery(name = "Comida.findByIdusuario", query = "SELECT c FROM Comida c WHERE c.idusuario = :idusuario")})
+    @NamedQuery(name = "Comida.findByNomCom", query = "SELECT c FROM Comida c WHERE c.nomCom = :nomCom"),
+    @NamedQuery(name = "Comida.findByTipoCom", query = "SELECT c FROM Comida c WHERE c.tipoCom = :tipoCom")})
 public class Comida implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -42,16 +42,16 @@ public class Comida implements Serializable {
     @Column(name = "idcomida")
     private Integer idcomida;
     @Size(max = 45)
-    @Column(name = "tipo")
-    private String tipo;
-    @Size(max = 100)
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Column(name = "nom_com")
+    private String nomCom;
     @Size(max = 45)
-    @Column(name = "idusuario")
-    private String idusuario;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "comidaidcomida")
-    private List<Comidaproducto> comidaproductoList;
+    @Column(name = "tipo_com")
+    private String tipoCom;
+    @OneToMany(mappedBy = "comidaIdcomida")
+    private List<Menu> menuList;
+    @JoinColumn(name = "producto_idproducto", referencedColumnName = "idproducto")
+    @ManyToOne
+    private Producto productoIdproducto;
 
     public Comida() {
     }
@@ -68,37 +68,37 @@ public class Comida implements Serializable {
         this.idcomida = idcomida;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getNomCom() {
+        return nomCom;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setNomCom(String nomCom) {
+        this.nomCom = nomCom;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getTipoCom() {
+        return tipoCom;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getIdusuario() {
-        return idusuario;
-    }
-
-    public void setIdusuario(String idusuario) {
-        this.idusuario = idusuario;
+    public void setTipoCom(String tipoCom) {
+        this.tipoCom = tipoCom;
     }
 
     @XmlTransient
-    public List<Comidaproducto> getComidaproductoList() {
-        return comidaproductoList;
+    public List<Menu> getMenuList() {
+        return menuList;
     }
 
-    public void setComidaproductoList(List<Comidaproducto> comidaproductoList) {
-        this.comidaproductoList = comidaproductoList;
+    public void setMenuList(List<Menu> menuList) {
+        this.menuList = menuList;
+    }
+
+    public Producto getProductoIdproducto() {
+        return productoIdproducto;
+    }
+
+    public void setProductoIdproducto(Producto productoIdproducto) {
+        this.productoIdproducto = productoIdproducto;
     }
 
     @Override

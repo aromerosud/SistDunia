@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -33,93 +32,81 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Actividad.findAll", query = "SELECT a FROM Actividad a"),
-    @NamedQuery(name = "Actividad.findByIdActividad", query = "SELECT a FROM Actividad a WHERE a.idActividad = :idActividad"),
-    @NamedQuery(name = "Actividad.findByDescripcion", query = "SELECT a FROM Actividad a WHERE a.descripcion = :descripcion"),
-    @NamedQuery(name = "Actividad.findByFechacreacion", query = "SELECT a FROM Actividad a WHERE a.fechacreacion = :fechacreacion"),
-    @NamedQuery(name = "Actividad.findByFecharealizado", query = "SELECT a FROM Actividad a WHERE a.fecharealizado = :fecharealizado"),
-    @NamedQuery(name = "Actividad.findByIdusuario", query = "SELECT a FROM Actividad a WHERE a.idusuario = :idusuario")})
+    @NamedQuery(name = "Actividad.findByIdactividad", query = "SELECT a FROM Actividad a WHERE a.idactividad = :idactividad"),
+    @NamedQuery(name = "Actividad.findByNomAct", query = "SELECT a FROM Actividad a WHERE a.nomAct = :nomAct"),
+    @NamedQuery(name = "Actividad.findByFechIni", query = "SELECT a FROM Actividad a WHERE a.fechIni = :fechIni"),
+    @NamedQuery(name = "Actividad.findByFechFin", query = "SELECT a FROM Actividad a WHERE a.fechFin = :fechFin")})
 public class Actividad implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "idActividad")
-    private Integer idActividad;
+    @Column(name = "idactividad")
+    private Integer idactividad;
     @Size(max = 45)
-    @Column(name = "descripcion")
-    private String descripcion;
-    @Column(name = "fechacreacion")
+    @Column(name = "nom_act")
+    private String nomAct;
+    @Column(name = "fech_ini")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date fechacreacion;
-    @Size(max = 45)
-    @Column(name = "fecharealizado")
-    private String fecharealizado;
-    @Size(max = 45)
-    @Column(name = "idusuario")
-    private String idusuario;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actividadidActividad")
-    private List<Detalleactividad> detalleactividadList;
+    private Date fechIni;
+    @Column(name = "fech_fin")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechFin;
+    @OneToMany(mappedBy = "actividadIdactividad")
+    private List<Menu> menuList;
 
     public Actividad() {
     }
 
-    public Actividad(Integer idActividad) {
-        this.idActividad = idActividad;
+    public Actividad(Integer idactividad) {
+        this.idactividad = idactividad;
     }
 
-    public Integer getIdActividad() {
-        return idActividad;
+    public Integer getIdactividad() {
+        return idactividad;
     }
 
-    public void setIdActividad(Integer idActividad) {
-        this.idActividad = idActividad;
+    public void setIdactividad(Integer idactividad) {
+        this.idactividad = idactividad;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getNomAct() {
+        return nomAct;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setNomAct(String nomAct) {
+        this.nomAct = nomAct;
     }
 
-    public Date getFechacreacion() {
-        return fechacreacion;
+    public Date getFechIni() {
+        return fechIni;
     }
 
-    public void setFechacreacion(Date fechacreacion) {
-        this.fechacreacion = fechacreacion;
+    public void setFechIni(Date fechIni) {
+        this.fechIni = fechIni;
     }
 
-    public String getFecharealizado() {
-        return fecharealizado;
+    public Date getFechFin() {
+        return fechFin;
     }
 
-    public void setFecharealizado(String fecharealizado) {
-        this.fecharealizado = fecharealizado;
-    }
-
-    public String getIdusuario() {
-        return idusuario;
-    }
-
-    public void setIdusuario(String idusuario) {
-        this.idusuario = idusuario;
+    public void setFechFin(Date fechFin) {
+        this.fechFin = fechFin;
     }
 
     @XmlTransient
-    public List<Detalleactividad> getDetalleactividadList() {
-        return detalleactividadList;
+    public List<Menu> getMenuList() {
+        return menuList;
     }
 
-    public void setDetalleactividadList(List<Detalleactividad> detalleactividadList) {
-        this.detalleactividadList = detalleactividadList;
+    public void setMenuList(List<Menu> menuList) {
+        this.menuList = menuList;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idActividad != null ? idActividad.hashCode() : 0);
+        hash += (idactividad != null ? idactividad.hashCode() : 0);
         return hash;
     }
 
@@ -130,7 +117,7 @@ public class Actividad implements Serializable {
             return false;
         }
         Actividad other = (Actividad) object;
-        if ((this.idActividad == null && other.idActividad != null) || (this.idActividad != null && !this.idActividad.equals(other.idActividad))) {
+        if ((this.idactividad == null && other.idactividad != null) || (this.idactividad != null && !this.idactividad.equals(other.idactividad))) {
             return false;
         }
         return true;
@@ -138,7 +125,7 @@ public class Actividad implements Serializable {
 
     @Override
     public String toString() {
-        return "Dunia.Entidades.Actividad[ idActividad=" + idActividad + " ]";
+        return "Dunia.Entidades.Actividad[ idactividad=" + idactividad + " ]";
     }
     
 }

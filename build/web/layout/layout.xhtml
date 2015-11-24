@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <h2>Sistema Dunia</h2> 
+            
+            <p:megaMenu>
+                <p:menuitem value="Inicio" url="index.xhtml"></p:menuitem>
+                <p:menuitem value="Nosotros" url="nosotros.xhtml"></p:menuitem>
+                <p:menuitem value="Actividades" url="actividades.xhtml"></p:menuitem>
+                <p:submenu label="Productos">
+                    <p:column>
+                        <p:submenu label="Seleccionar">
+                            <p:menuitem value="Insertar Productos" url="producto.xhtml"></p:menuitem>
+                            <p:menuitem value="Listar Productos" url="producto.xhtml"></p:menuitem>
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+                <p:menuitem value="Comidas" url="comida.xhtml"></p:menuitem>
+                <p:submenu label="Gastos">
+                    
+                </p:submenu>
+                <p:submenu label="Promociones">
+                    <p:column>
+                        <p:submenu label="Seleccionar">
+                            <p:menuitem value="Proveesor Favorito" url="promociones.xhtml"></p:menuitem>
+                        <p:menuitem value="Ofertas" url="promociones.xhtml"></p:menuitem>
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+                <p:menuitem value="Contactenos" url="contactenos.xhtml"></p:menuitem>
+            </p:megaMenu>
+            <ui:insert name="top">Top</ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <div id="bottom">
+            <div id="footer">
+                <div class="footer-content">
+                    <div class="footercontainer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <div class="col-sm-2 col-xs-6" style="float: left; padding: 15px">
+                                            <div class="cell-footer">
+                                                <div class="title_footer">
+                                                    ¿Quiénes Sómos?
+                                                </div>
+                                                <div class="item_footer">
+                                                    <a href="#">Nosotros</a>
+                                                </div>
+                                                <div class="item_footer">
+                                                    <a href="#">Responsabilidad social</a>
+                                                </div>
+                                                <div class="item_footer">
+                                                    <a href="#">Compromiso con el usuario</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 col-xs-6" style="float: left; padding: 15px">
+                                            <div class="cell-footer">
+                                                <div class="title_footer">
+                                                    ¿Qué Ofrecemos?
+                                                </div>
+                                                <div class="item_footer">
+                                                    <a href="#">Nuestros productos</a>
+                                                </div>
+                                                <div class="item_footer">
+                                                    <a href="#">Nuestros servicios</a>
+                                                </div>
+                                                <div class="item_footer">
+                                                    <a href="#">Marcas representantes</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 col-xs-6" style="float: left; padding: 15px">
+                                            <div class="cell-footer">
+                                                <div class="title_footer">
+                                                    Legal
+                                                </div>
+                                                <div class="item_footer">
+                                                    <a href="#">Políticas de privacidad</a>
+                                                </div>
+                                                <div class="item_footer">
+                                                    <a href="#">Términos de uso</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 col-xs-6" style="float: left; padding: 15px">
+                                            <div class="cell-footer">
+                                                <div class="title_footer">
+                                                    Comunicación
+                                                </div>
+                                                <div class="item_footer">
+                                                    <a href="#">Foro de discución</a>
+                                                </div>
+                                                <div class="item_footer">
+                                                    <a href="#">Publicaciones</a>
+                                                </div>
+                                                <div class="item_footer">
+                                                    <a href="#">Ayuda</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 col-xs-12">
+                                            <div class="search-info">
+                                                <div class="frm-search">
+                                                    <input class="form-control input-sm s-text" type="text" placeholder="Buscar en el sistema" style="float: right" />                                                   
+                                                </div>
+                                                <div class="info-enterprise" style="float: right">
+                                                    Sistema Dunia <br />
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legalcontainer" style="clear: both">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    &copy; Copyright 2015 - Todos los Derechos Reservados
+                                </div>
+                                <div class="col-sm-6 col-xs-12 text-right">
+                                    <a href="#"><i class="fa fa-sitemap"></i>&nbsp;Mapa del sitio</a><span class="separator">|</span><a href="#"><i class="fa fa-phone"></i>&nbsp;Contacto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ui:insert name="bottom">Bottom</ui:insert>
+        </div>
+
+    </h:body>
+
+</html>

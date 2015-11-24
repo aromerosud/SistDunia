@@ -1,13 +1,24 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        <div>
-                        <img id="foto" class="profile-img" src="content/images/usuario.png" />                        
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../layout/layout.xhtml">
+
+            <ui:define name="top">
+                
+            </ui:define>
+
+            <ui:define name="content">
+                Contenido
+                
+                <h:form>
+            <div>
+                      
+                <img id="foto" src="imagenes/usuario.png"/>
                     </div>                   
                     <div id="divuser" class="mb10">
                         <input name="txtUsuario" type="text" id="txtUsuario" placeholder="Usuario" />
@@ -19,10 +30,18 @@
                         <input type="submit" name="btnAcceder" value="Acceder" id="btnAcceder" class="rc-button-submit" />
                     </div>
                     <div class="options-user">                       
-                        <a href="Registro.aspx">Registrar personal</a>
+                        <a href="registro.xhtml">Registrar Usuario</a>
                         <a id="recordarpass" class="right" href="javascript:__doPostBack(&#39;recordarpass&#39;,&#39;&#39;)">No recuerdo mi contraseña</a>
                     </div>
 
-    </h:body>
-</html>
+        </h:form>
+            </ui:define>
 
+            <ui:define name="bottom">
+         
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
